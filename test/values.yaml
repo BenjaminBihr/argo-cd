@@ -73,12 +73,16 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /health/liveness
     port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
 readinessProbe:
   httpGet:
-    path: /
+    path: /health/readiness
     port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
 
 autoscaling:
   enabled: false
